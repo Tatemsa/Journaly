@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RedisController;
 use Illuminate\Support\Facades\Route;
@@ -42,9 +43,5 @@ Route::get('/otherPost', [PostController::class, 'otherPost'])->middleware(['aut
 Route::get('/post/{id}', [PostController::class, 'show'])->middleware(['auth', 'verified'])->name('post.show');
 
 Route::post('/createPost', [PostController::class, 'store'])->middleware(['auth', 'verified'])->name('post.store');
-
-Route::get('/loginPage', function(){
-    return view('loginPage');
-});
-
+Route::post('/post/{id}', [PostController::class, 'comment'])->middleware(['auth', 'verified'])->name('post.comment');
 require __DIR__.'/auth.php';

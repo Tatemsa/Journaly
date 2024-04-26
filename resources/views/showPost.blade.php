@@ -15,6 +15,14 @@
                     @empty
                         <span>Aucun commentaire pour ce post</span>
                     @endforelse
+                    <hr>
+                    <h3>Faire un commentaire maintenant:</h3>
+                    <form action="{{ route('post.comment', ['id'=>$post->id]) }}" class="form-group" method="post">
+                        @csrf
+                        <textarea id="" cols="30" rows="10" class="form-control" name="content" value="{{old('content')}}" placeholder="A votre plume!" style="border: solid 3px;"></textarea>
+                        <br> 
+                        <button class="btn btn-success" class="form-control">Valider le commentaire</button>
+                    </form>
                 </div>
             </div>
         </div>

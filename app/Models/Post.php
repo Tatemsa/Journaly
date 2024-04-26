@@ -21,4 +21,8 @@ class Post extends Model
     public function image(){
         return $this->hasOne(Image::class);
     }
+
+    public function user(){
+        return $this->belongsTo(Post::class);
+    } 
 }
